@@ -50,6 +50,19 @@
         ]
       }
     },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run web:build"
+          },
+          {
+            "command": "firebase deploy --only functions"
+          }
+        ]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": [

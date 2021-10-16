@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/web",
         "index": "apps/web/src/index.html",
@@ -14,8 +16,13 @@
         "polyfills": "apps/web/src/polyfills.ts",
         "tsConfig": "apps/web/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
-        "styles": ["apps/web/src/styles.scss"],
+        "assets": [
+          "apps/web/src/favicon.ico",
+          "apps/web/src/assets"
+        ],
+        "styles": [
+          "apps/web/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -63,7 +70,21 @@
       },
       "defaultConfiguration": "development",
       "options": {
+        "browserTarget": "web:build",
         "proxyConfig": "apps/web/proxy.conf.json"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run web:build"
+          },
+          {
+            "command": "firebase deploy --only hosting"
+          }
+        ]
       }
     },
     "extract-i18n": {
@@ -75,17 +96,25 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/web/src/**/*.ts", "apps/web/src/**/*.html"]
+        "lintFilePatterns": [
+          "apps/web/src/**/*.ts",
+          "apps/web/src/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/web"],
+      "outputs": [
+        "coverage/apps/web"
+      ],
       "options": {
         "jestConfig": "apps/web/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["type:app", "scope:web"]
+  "tags": [
+    "type:app",
+    "scope:web"
+  ]
 }

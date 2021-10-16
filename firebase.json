@@ -1,5 +1,6 @@
 {
   "functions": {
+    "runtime": "nodejs14",
     "source": "dist/apps/api",
     "ignore": [
       "firebase.json",
