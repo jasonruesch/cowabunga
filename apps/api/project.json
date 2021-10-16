@@ -60,7 +60,8 @@
           {
             "command": "firebase deploy --only functions"
           }
-        ]
+        ],
+        "parallel": false
       }
     },
     "lint": {

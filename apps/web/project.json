@@ -84,7 +84,8 @@
           {
             "command": "firebase deploy --only hosting"
           }
-        ]
+        ],
+        "parallel": false
       }
     },
     "extract-i18n": {
