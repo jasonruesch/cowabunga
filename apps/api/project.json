@@ -55,7 +55,7 @@
       "options": {
         "commands": [
           {
-            "command": "nx run web:build"
+            "command": "nx run api:build"
           },
           {
             "command": "firebase deploy --only functions"
