@@ -31,10 +31,23 @@
         }
       }
     },
-    "serve": {
-      "executor": "@nrwl/node:execute",
+    "serve-firebase": {
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "api:build"
+        "command": "firebase emulators:start --only functions --inspect-functions"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run api:build --watch"
+          },
+          {
+            "command": "nx run api:serve-firebase"
+          }
+        ]
       }
     },
     "lint": {
