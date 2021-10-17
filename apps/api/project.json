@@ -31,12 +31,6 @@
         }
       }
     },
-    "serve-firebase": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "firebase emulators:start --only functions --inspect-functions"
-      }
-    },
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
@@ -45,7 +39,7 @@
             "command": "nx run api:build --watch"
           },
           {
-            "command": "nx run api:serve-firebase"
+            "command": "firebase emulators:start --only functions --inspect-functions"
           }
         ]
       }
